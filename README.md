@@ -25,7 +25,7 @@ $("#gallery").gallery({interval:5000});
 Whether to scale images by height or width in the container
 ```javascript
 $("#gallery").gallery({
-					interval:5000,
-					imageLayout:"height"
-				});
+	interval:5000,
+	imageLayout:"height"
+});
 ```
