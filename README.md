@@ -1,4 +1,4 @@
-![ScreenShot](https://raw.github.com/harryjjacobs/autoslider/master/screenshot.jpg)
+![ScreenShot](https://raw.github.com/harryjjacobs/autoslider/master/slider-demo.jpg)
 
 This is a very simple and basic jQuery automatic image slider that slides through a gallery of images. It has no user controls however the speed at which it goes through the images can be changed. It is very simple to use.
 
