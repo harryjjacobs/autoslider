@@ -1,9 +1,9 @@
 var index = 0;
 var gall = null;
-var interval = 4000;
-$.fn.gallery = function(duration,imageLayout) {
-	if (duration > 0) {
-		interval = duration;
+var interval = 5000;
+$.fn.gallery = function (args) {
+	if (args.interval > 0) {
+		interval = args.interval;
 	}
 	gall = $(this);
 	$(this).css("text-align", "center");
@@ -13,7 +13,9 @@ $.fn.gallery = function(duration,imageLayout) {
 
 	$(this).children("img").each(function(i, el) {
 		$(el).css("display", "inline-block");
-		if (imageLayout == "width") {
+		
+		if (args.imageLayout == "width") {
+			
 			$(el).css("width", "100%");
 			$(el).css("height", "auto");
 		}else{
@@ -37,7 +39,7 @@ $.fn.gallery = function(duration,imageLayout) {
 		if (index < $(gall).children(".galleryItem").size() - 1) {
 			$(el).animate({
 				"marginLeft" : "-=" + ($(gall).width() + 4) + "px"
-			}, "slow");
+			}, "medium");
 
 			index += 1;
 		} else {
