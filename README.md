@@ -9,9 +9,9 @@ This plugin requies jQuery.
 You must first create a div to use as the gallery and put the images you want to be scrolled through inside;
 ```html
 <div id="gallery">
-<img src="images/banner1.jpg"></img>
-<img src="images/banner2.jpg"></img>
-<img src="images/banner3.jpg"></img>
+	<img src="images/banner1.jpg"></img>
+	<img src="images/banner2.jpg"></img>
+	<img src="images/banner3.jpg"></img>
 </div>
 ```
 This is all that is required to turn the div into a scrolling image gallery:
