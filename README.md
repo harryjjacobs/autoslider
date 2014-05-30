@@ -19,13 +19,13 @@ The gallery function takes the following arguments:
 
 A scrolling interval in milliseconds:
 ```javascript
-$("#gallery").gallery({interval:5000});
+$("#gallery").gallery({interval:10000});
 ```
 
 Whether to scale images by height or width in the container
 ```javascript
 $("#gallery").gallery({
-	interval:5000,
+	interval:7000,
 	imageLayout:"height"
 });
 ```
