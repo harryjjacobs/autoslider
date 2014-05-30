@@ -1,5 +1,7 @@
 This is a very simple and basic jQuery automatic image slider that slides through a gallery of images. It has no user controls however the speed at which it goes through the images can be changed. It is very simple to use.
 
+It's also tiny-1.12KB!
+
 This plugin requies jQuery.
 
 You must first create a div to use as the gallery and put the images you want to be scrolled through inside;
