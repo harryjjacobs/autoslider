@@ -21,16 +21,26 @@ $("#gallery").gallery();
 
 The gallery function takes the following arguments:
 
-A scrolling interval in milliseconds:
+A scrolling interval in milliseconds. By default the interval is 5000 milliseconds (5 seconds):
 ```javascript
 $("#gallery").gallery({interval:10000});
 ```
 
-Whether to scale images by height or width in the container
+The speed at which to slide the images in milliseconds (the default is 500).
 ```javascript
-$("#gallery").gallery({
-	interval:7000,
-	imageLayout:"height"
-});
+$("#gallery").gallery({slideSpeed:100});
 ```
 
+Whether to scale images by height or width in the container
+```javascript
+$("#gallery").gallery({imageLayout:"height"});
+```
+
+Example:
+```javascript
+$("#gallery").gallery({
+	interval:7500,
+	imageLayout:"width",
+	slideSpeed:700
+});
+```
