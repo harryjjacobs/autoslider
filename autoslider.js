@@ -1,6 +1,14 @@
 var index = 0;
 var gall = null;
 var interval = 5000;
+
+jQuery.fn.cleanWhitespace = function() {
+    textNodes = this.contents().filter(
+        function() { return (this.nodeType == 3 && !/\S/.test(this.nodeValue)); })
+        .remove();
+    return this;
+}
+
 $.fn.gallery = function (args) {
 	if (args.interval > 0) {
 		interval = args.interval;
@@ -12,10 +20,10 @@ $.fn.gallery = function (args) {
 	$(this).css("padding", "0px");
 
 	$(this).children("img").each(function(i, el) {
-		$(el).css("display", "inline-block");
-		
+		$(el).css("display", "block");
+		$(el).css("border", "0px");
+		$(el).css("float", "left");
 		if (args.imageLayout == "width") {
-			
 			$(el).css("width", "100%");
 			$(el).css("height", "auto");
 		}else{
@@ -26,11 +34,12 @@ $.fn.gallery = function (args) {
 		$(el).css("overflow", "hidden");
 		$(el).wrapAll('<div class="galleryItem"></div>');
 	});
-
-	$(this).children(".galleryItem").css("display", "inline-block");
-	$(this).children(".galleryItem").css("margin", "0px  auto");
-	$(this).children(".galleryItem").css("padding", "0px");
 	
+	$(this).cleanWhitespace(); //Very important - removes gap between slides
+	$(this).children(".galleryItem").css("display", "inline-block");
+	$(this).children(".galleryItem").css("margin", "0px auto");
+	$(this).children(".galleryItem").css("padding", "0px");
+	$(this).children(".galleryItem").css("border", "0px");
 	$(this).children(".galleryItem").css("width", "100%");
 	$(this).children(".galleryItem").css("height", "100%");
 
@@ -38,7 +47,7 @@ $.fn.gallery = function (args) {
 		var el = $(gall).children(".galleryItem").get(0);
 		if (index < $(gall).children(".galleryItem").size() - 1) {
 			$(el).animate({
-				"marginLeft" : "-=" + ($(gall).width() + 4) + "px"
+				"marginLeft" : "-=" + ($(gall).width()) + "px"
 			}, "medium");
 
 			index += 1;
@@ -50,4 +59,5 @@ $.fn.gallery = function (args) {
 			}, "slow");
 		}
 	}, interval)
+	return this;
 };
