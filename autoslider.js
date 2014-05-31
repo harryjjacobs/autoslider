@@ -1,7 +1,7 @@
 var index = 1;
 var gall = null;
 var interval = 5000;
-
+var speed = 500;
 jQuery.fn.cleanWhitespace = function() {
 	textNodes = this.contents().filter(function() {
 		return (this.nodeType == 3 && !/\S/.test(this.nodeValue));
@@ -13,6 +13,11 @@ $.fn.gallery = function(args) {
 	if (args.interval > 0) {
 		interval = args.interval;
 	}
+	
+	if (args.slideSpeed > 0) {
+		speed = args.slideSpeed
+	}
+	
 	gall = $(this);
 	$(this).css("text-align", "center");
 	$(this).css("white-space", "nowrap");
@@ -48,7 +53,7 @@ $.fn.gallery = function(args) {
 		if (index < $(gall).children(".galleryItem").size() - 1) {
 			$(el).animate({
 				"marginLeft" : "-=" + ($(gall).width()) + "px"
-			}, "medium");
+			}, speed);
 
 			index += 1;
 		} else {
@@ -56,7 +61,7 @@ $.fn.gallery = function(args) {
 			var allEli = $(gall).children(".galleryItem");
 			$(allEli).animate({
 				"marginLeft" : "" + 0 + "px"
-			}, "slow");
+			}, speed);
 		}
 	}, interval)
 	return this;
