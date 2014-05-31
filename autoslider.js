@@ -50,7 +50,7 @@ $.fn.gallery = function(args) {
 	
 	setInterval(function() {
 		var el = $(gall).children(".galleryItem").get(0);
-		if (index < $(gall).children(".galleryItem").size() - 1) {
+		if (index < $(gall).children(".galleryItem").size()) {
 			$(el).animate({
 				"marginLeft" : "-=" + ($(gall).width()) + "px"
 			}, speed);
