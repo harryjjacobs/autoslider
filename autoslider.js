@@ -1,15 +1,15 @@
-var index = 0;
+var index = 1;
 var gall = null;
 var interval = 5000;
 
 jQuery.fn.cleanWhitespace = function() {
-    textNodes = this.contents().filter(
-        function() { return (this.nodeType == 3 && !/\S/.test(this.nodeValue)); })
-        .remove();
-    return this;
+	textNodes = this.contents().filter(function() {
+		return (this.nodeType == 3 && !/\S/.test(this.nodeValue));
+	}).remove();
+	return this;
 }
 
-$.fn.gallery = function (args) {
+$.fn.gallery = function(args) {
 	if (args.interval > 0) {
 		interval = args.interval;
 	}
@@ -20,13 +20,11 @@ $.fn.gallery = function (args) {
 	$(this).css("padding", "0px");
 
 	$(this).children("img").each(function(i, el) {
-		$(el).css("display", "block");
-		$(el).css("border", "0px");
-		$(el).css("float", "left");
+		$(el).css("display", "inline-block");
 		if (args.imageLayout == "width") {
 			$(el).css("width", "100%");
 			$(el).css("height", "auto");
-		}else{
+		} else {
 			$(el).css("height", "100%");
 			$(el).css("width", "auto");
 		}
@@ -34,15 +32,17 @@ $.fn.gallery = function (args) {
 		$(el).css("overflow", "hidden");
 		$(el).wrapAll('<div class="galleryItem"></div>');
 	});
-	
-	$(this).cleanWhitespace(); //Very important - removes gap between slides
+
+	//Very important - removes gap between slides
+	$(this).cleanWhitespace();
+
 	$(this).children(".galleryItem").css("display", "inline-block");
 	$(this).children(".galleryItem").css("margin", "0px auto");
 	$(this).children(".galleryItem").css("padding", "0px");
 	$(this).children(".galleryItem").css("border", "0px");
 	$(this).children(".galleryItem").css("width", "100%");
 	$(this).children(".galleryItem").css("height", "100%");
-
+	
 	setInterval(function() {
 		var el = $(gall).children(".galleryItem").get(0);
 		if (index < $(gall).children(".galleryItem").size() - 1) {
@@ -52,7 +52,7 @@ $.fn.gallery = function (args) {
 
 			index += 1;
 		} else {
-			index = 0;
+			index = 1;
 			var allEli = $(gall).children(".galleryItem");
 			$(allEli).animate({
 				"marginLeft" : "" + 0 + "px"
